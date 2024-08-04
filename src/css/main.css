@@ -1,0 +1,695 @@
+/*
+  CSS Reset from Josh Comeau.
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: calc(1em + 0.6rem);
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  5. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+  8. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+/*
+  8. Set the scroll behavior
+*/
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Code Starts Here */
+
+/*
+It makes a lot of sense to set the variables to (my preferred) dark values first. I will also run a media query below to check if the preferred color scheme is light to then adjust it based on that context. 
+*/
+
+:root {
+  --default-text-color: #f7f7f7;
+  --bg-color: #161616;
+  --accent-text-color: #e3e3e3;
+  --inactive-page-link-color: #818181;
+  --fancy-link-opacity: 0.19;
+  --project-background-color: rgba(49, 49, 49, 0.43);
+  --newsletter-background: #313131;
+  --highlight-background: #383838;
+  --newsletter-text-color: #f7f7f7;
+  --email-input-background: #e3e3e3;
+  --email-input-text-color: #666666;
+}
+
+@media (prefers-color-scheme: light) {
+  /* If the user does prefer a light theme instead */
+  :root {
+    --default-text-color: #161616;
+    --bg-color: #f7f7f7;
+    --accent-text-color: #313131;
+    --active-page-link-color: #515151;
+    --project-background-color: rgba(227, 227, 227, 0.43);
+    --newsletter-background: #e3e3e3;
+    --highlight-background: #c8c8c8;
+    --newsletter-text-color: #161616;
+    --email-input-background: #c8c8c8;
+    --email-input-text-color: #313131;
+  }
+}
+
+html[data-color-scheme="light"] {
+  --default-text-color: #161616;
+  --bg-color: #f7f7f7;
+  --accent-text-color: #313131;
+  --active-page-link-color: #515151;
+  --project-background-color: rgba(227, 227, 227, 0.43);
+  --newsletter-background: #e3e3e3;
+  --newsletter-text-color: #161616;
+  --email-input-background: #c8c8c8;
+  --email-input-text-color: #313131;
+  --highlight-background: #c8c8c8;
+}
+
+html[data-color-scheme="dark"] {
+  --default-text-color: #f7f7f7;
+  --bg-color: #161616;
+  --accent-text-color: #e3e3e3;
+  --active-page-link-color: #818181;
+  --project-background-color: rgba(49, 49, 49, 0.43);
+  --newsletter-background: #313131;
+  --newsletter-text-color: #f7f7f7;
+  --email-input-background: #e3e3e3;
+  --email-input-text-color: #666666;
+  --highlight-background: #383838;
+}
+
+html {
+  background-color: var(--bg-color);
+  color: var(--default-text-color);
+  font-family: "Work Sans", sans-serif;
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  /* font-smooth: never; */
+}
+
+p::selection,
+h1::selection,
+h2::selection,
+h3::selection,
+h4::selection,
+h5::selection,
+small::selection {
+  background: var(--highlight-background);
+}
+
+body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  width: 87%;
+  min-width: 300px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+
+header.technical-detail {
+  flex-direction: column;
+  margin: 150px 0 30px 0;
+}
+
+header.technical-detail .back-btn {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+header.technical-detail .theme-toggler {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+header nav a {
+  text-decoration: none;
+  color: var(--inactive-page-link-color);
+  padding-left: 7px;
+}
+
+.theme-toggler,
+.back-btn {
+  cursor: pointer;
+}
+
+main.technical-detail small {
+  font-family: "Cormorant Garamond", Garamond, serif;
+  font-size: 15px;
+  font-style: italic;
+}
+
+main.technical-detail h1 {
+  margin-top: 20px;
+  line-height: 50px;
+}
+
+main.technical-detail hr.header-segmenter {
+  width: 84px;
+  background: var(--accent-text-color);
+  opacity: 25%;
+  height: 4px;
+}
+
+main.technical-detail p {
+  font-size: 12px;
+}
+
+main.technical-detail p.intro {
+  font-size: 12px;
+}
+
+main.readings {
+  margin: 0 0 40px 0;
+}
+
+main.readings article {
+  width: 100%;
+  margin-bottom: 15px;
+  display: flex;
+  background: var(--newsletter-background);
+  border-radius: 5px;
+  border: 2px solid var(--newsletter-background);
+
+  cursor: pointer;
+  /* outline: 1px solid blue; */
+  padding: 12px 13px 12px 13px;
+  /* transition: all 1s ease; */
+  align-items: center;
+}
+
+main.readings article:hover {
+  border: 2px solid var(--highlight-background);
+}
+
+main.readings article img {
+  width: 20px;
+  height: 20px;
+}
+main.readings article hr {
+  height: fit-content;
+  margin: 0;
+}
+
+main.readings article p {
+  /* outline: 1px solid red; */
+  padding: 0 5px 0 5px;
+  text-wrap: nowrap;
+  margin: 0;
+}
+
+main.readings article span.book-title {
+  /* text-wrap: nowrap; */
+  padding: 0 6px 0 7px;
+  text-wrap: nowrap;
+  /* margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 150px;
+  display: inline-block;
+  overflow: hidden; */
+  /* width: fit-content; */
+}
+
+main {
+  /* outline: 1px solid white; */
+  width: 87%;
+  min-width: 300px;
+}
+
+h1 {
+  font-family: "Cormorant Garamond", Garamond, serif;
+  font-size: 47px;
+  line-height: 40px;
+  margin: 10px 0 20px 0;
+  font-weight: bold;
+}
+
+p {
+  margin-bottom: 12px;
+}
+
+a {
+  color: inherit;
+  transition: text-decoration-thickness 0.5s ease-in-out;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+a.fancy {
+  display: flex;
+  align-items: center;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+  text-decoration: none;
+  color: var(--default-text-color);
+  padding-left: 4px;
+}
+
+a.fancy svg {
+  margin-left: 4px;
+}
+
+a.fancy:before {
+  content: "";
+  position: absolute;
+  width: 110%;
+  bottom: 1px;
+  left: -1px;
+  height: 40%;
+  background: var(--accent-text-color);
+  opacity: var(--fancy-link-opacity);
+}
+
+footer {
+  width: 87%;
+  border-top: 1px solid var(--accent-text-color);
+  color: var(--accent-text-color);
+  display: flex;
+  padding: 7px 0 10px 0;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+footer a {
+  text-decoration: none;
+  color: var(--accent-text-color);
+}
+
+.weblinks {
+  margin: 25px 0 45px 0;
+}
+
+.graphic {
+  position: absolute;
+  height: 80vh;
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: -1;
+}
+
+.graphic-technical-detail {
+  position: absolute;
+  height: 95vh;
+  top: 0;
+  left: -50px;
+  display: none;
+  z-index: -1;
+}
+
+.graphic img {
+  width: 100%;
+  height: 100%;
+}
+
+hr {
+  background-color: var(--accent-text-color);
+  width: 100%;
+  margin: 30px 0 50px 0;
+}
+
+.month {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.month .commentary-text {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 150px;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.month h5 {
+  font-size: 14px;
+  font-weight: bold;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.month a {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  margin: 15px 0 0px 0;
+}
+
+.month a svg {
+  margin-right: 10px;
+}
+
+.month a span:first-child {
+  display: flex;
+  align-items: center;
+}
+
+.month a span:last-child {
+  color: var(--accent-text-color);
+}
+
+.active {
+  color: var(--default-text-color);
+}
+
+main.technical {
+  margin-bottom: 30px;
+}
+
+main.technical article {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main.technical article .img,
+main.technical article .text {
+  margin-top: 7px;
+  width: 100%;
+}
+
+main.technical article .text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+main.technical article .img img {
+  /* width: 100%; */
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+main.technical article .text small {
+  font-family: "Cormorant Garamond", Garamond, serif;
+  font-size: 14px;
+}
+
+main.technical article .text h4 {
+  font-family: "Cormorant Garamond", Garamond, serif;
+  font-size: 22px;
+  font-weight: bold;
+  margin: 7px 0 7px 0;
+}
+
+main.technical article a {
+  font-weight: bold;
+}
+
+section.projects {
+  margin-bottom: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+section.projects .container {
+  width: 100%;
+  min-width: 331px;
+  background-color: var(--project-background-color);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding: 14px 20px 14px 20px;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+section.projects .container img {
+  width: 35px;
+  height: 35px;
+}
+
+section.projects .container .left {
+  display: flex;
+  align-items: center;
+}
+
+section.projects .container .left .txt {
+  margin-left: 14px;
+}
+
+section.projects .container p,
+section.projects .container small {
+  padding: 0;
+  margin: 0;
+}
+
+section.projects .container p {
+  font-size: 14px;
+}
+
+section.projects .container small {
+  font-size: 11px;
+}
+
+.top {
+  border-bottom: 1px solid var(--default-text-color);
+  margin: 0 0 20px 0;
+  padding: 0 0 20px 0;
+}
+
+.top h1 {
+  font-size: 30px;
+  margin: 0;
+}
+
+.top small {
+  font-size: 13px;
+  color: var(--accent-text-color);
+  margin: 7px 0 0 0;
+}
+
+p.imgreference {
+  font-family: "Cormorant Garamond", Garamond, serif;
+  font-size: 10px;
+  width: 100%;
+  display: block;
+  text-align: right;
+  margin: 7px 0 0 0;
+}
+
+section.commentary-content {
+  margin-bottom: 30px;
+}
+
+section.commentary-content img {
+  width: 100%;
+  margin: auto;
+  margin-top: 40px;
+}
+
+section.commentary-content img + em {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 40px;
+  background-color: var(--newsletter-background);
+}
+
+main.not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+main.not-found .wrap {
+  text-align: center;
+  height: fit-content;
+}
+
+main.not-found h1 {
+  font-size: 100px;
+  line-height: 105px;
+}
+
+main.not-found p {
+  max-width: 385px;
+}
+
+@media screen and (min-width: 550px) {
+  section.projects .container {
+    width: 90%;
+  }
+
+  .month .commentary-text {
+    width: fit-content;
+  }
+
+  /* main.readings article p {
+    max-width: 200px;
+  } */
+
+  main.readings article p.book-title {
+    max-width: 200px;
+    min-width: 100px;
+    /* outline: 1px solid red; */
+  }
+}
+
+@media screen and (min-width: 700px) {
+  header,
+  main,
+  footer {
+    width: 70%;
+  }
+
+  header {
+    margin-top: 100px;
+  }
+
+  footer {
+    margin-bottom: 70px;
+  }
+
+  .month a svg {
+    margin-right: 15px;
+  }
+
+  section.commentary-content {
+    margin: 20px 0 40px 0;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  main.technical article .img {
+    width: 45%;
+  }
+
+  main.technical article .text {
+    width: 50%;
+  }
+
+  /* main.technical article:nth-child(odd) {
+    flex-direction: row-reverse;
+  }
+
+  main.technical article:nth-child(odd) .text {
+    text-align: right;
+    align-items: flex-end;
+  } */
+}
+
+@media screen and (min-width: 1000px) {
+  header,
+  main,
+  footer {
+    width: 55%;
+  }
+
+  .graphic {
+    display: block;
+  }
+
+  .month a svg {
+    margin-right: 20px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  section.projects .container {
+    width: 330px;
+    margin-bottom: 20px;
+  }
+
+  section.projects {
+    justify-content: space-around;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  header,
+  main,
+  footer {
+    width: 45%;
+  }
+
+  header {
+    margin-top: 140px;
+  }
+
+  .month a svg {
+    margin-right: 25px;
+  }
+}
+
+html {
+  visibility: visible;
+  opacity: 1;
+}

@@ -1,0 +1,17 @@
+---
+title: "On: Belief"
+date: "2023-3-8"
+desc: "Tolerating the initial blur"
+---
+
+The one thing that I vividly remember about my [secondary school](https://en.wikipedia.org/wiki/Education_in_Nigeria#Secondary_education) experience in Nigeria is the coding competitions. For some reason as I transitioned from junior to senior secondary school, we were going for one every week. It felt like just about every NGO was organizing some sort of initiative to encourage technical enlightenment in the community.
+
+I went for quite a few but the common thread for most of them was fundamentally similar: at the start, almost like in exams, there was some paper containing programming tasks to be solved. These were then handed out to groups (usually the school teams that came) or individual competitors to be solved. The time control was anywhere upwards of 3 hours! There were usually some precocious groups that finished well before time but more often than not, everyone almost always found themselves scrambling to complete everything at the end.
+
+A lot of it was hard, at least initially. Can’t count how many times my teammates and I would receive the questions and look at each other frantically, realizing that there was not a lot we knew how to work through on the problem sheets. Yet what’s funny thinking about it now is that more often than not we still found a way to get most of the work done — my team made several podium finishes, and on one occasion, we went all the way. I'm trying to conceptualize what would often change during the events, and figure out why the whole team could go from being initially confused and bamboozled by questions to solving them completely.
+
+I've only now settled on belief as the explanation as to why that was. Initially, when I told myself this today, I quickly rebuffed the idea. I kept asking myself: “Isn’t it a gross oversimplification to suggest that the separating factor between your initial state of confusion and then understanding was, well, belief??!?!”. Yet this evening now, against my better efforts to dispel the notion, I’ve found some reason to justify it.
+
+Apart from the time I’m writing code in a day, sometimes I also find myself doing something technical. _“The modem isn’t working”_, _“My mum’s email client isn’t receiving emails”_, or _“She’s having some difficulty formatting her Word document in a certain way”_. Sometimes the tasks are very open-ended too, and I often don’t even know the answer at first. Outside switching it on and off, I can’t always initially tell you why the modem isn’t working. I’m also no better at MS Word than the average user and if I’m not clicking the send button on mail clients, there’s not a lot I know about them. Yet time and time again, I find it. I somehow click something or stumble across something and then the problem goes away. In those areas, I don’t think my technical ability far surpasses my mother’s. It just feels like I’ve come to back myself to figure things out, even when the beginning is initially confusing. In these areas, I suppose what sometimes separates my mum and me is that my head subconsciously believes that the issue at hand has a remedy, and just knowing that there’s a solution somewhere pushes me to find it.
+
+I think the hack is just getting comfortable with the initial blur, and being energized relentlessly by the understanding that the solution is somewhere under your nose, though momentarily obscure.

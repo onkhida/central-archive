@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <meta name="author" content="etadn" />
+    <meta name="title" content="The Cascade Theory" />
+    <meta
+      name="description"
+      content="An unveiling of the mechanics behind the CSS Cascade."
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://danieleta.com/" />
+    <meta property="og:title" content="The Cascade Theory" />
+    <meta
+      property="og:description"
+      content="An unveiling of the mechanics behind the CSS Cascade."
+    />
+    <meta
+      property="og:image"
+      content="https://i.ibb.co/bFjwPyk/the-cascade-theory.png"
+    />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@etadn" />
+    <meta name="twitter:creator" content="@etadn" />
+    <meta name="twitter:title" content="The Cascade Theory" />
+    <meta
+      name="twitter:description"
+      content="An unveiling of the mechanics behind the CSS Cascade."
+    />
+    <meta
+      name="twitter:image:src"
+      content="https://i.ibb.co/bFjwPyk/the-cascade-theory.png"
+    />
+
+    <title>The Cascade Theory</title>
+    <!-- <link rel="icon" type="image/x-icon" href="../src/assets/favicon.ico" /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html {
+        visibility: hidden;
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="graphic graphic-technical-detail"></div>
+    <header class="technical-detail">
+      <a href="/technical.html" class="back-btn">
+        <svg
+          class="svg-light"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M7 13L1 7M1 7L7 1M1 7H13C14.5913 7 16.1174 7.63214 17.2426 8.75736C18.3679 9.88258 19 11.4087 19 13C19 14.5913 18.3679 16.1174 17.2426 17.2426C16.1174 18.3679 14.5913 19 13 19H10"
+            stroke="#F7F7F7"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <svg
+          class="svg-dark"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M7 13L1 7M1 7L7 1M1 7H13C14.5913 7 16.1174 7.63214 17.2426 8.75736C18.3679 9.88258 19 11.4087 19 13C19 14.5913 18.3679 16.1174 17.2426 17.2426C16.1174 18.3679 14.5913 19 13 19H10"
+            stroke="#161616"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
+      <div class="theme-toggler">
+        <svg
+          class="svg-light"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10 1V3.25M16.364 3.636L14.773 5.227M19 10H16.75M16.364 16.364L14.773 14.773M10 16.75V19M5.227 14.773L3.636 16.364M3.25 10H1M5.227 5.227L3.636 3.636M13.75 10C13.75 10.9946 13.3549 11.9484 12.6517 12.6517C11.9484 13.3549 10.9946 13.75 10 13.75C9.00544 13.75 8.05161 13.3549 7.34835 12.6517C6.64509 11.9484 6.25 10.9946 6.25 10C6.25 9.00544 6.64509 8.05161 7.34835 7.34835C8.05161 6.64509 9.00544 6.25 10 6.25C10.9946 6.25 11.9484 6.64509 12.6517 7.34835C13.3549 8.05161 13.75 9.00544 13.75 10Z"
+            stroke="#F7F7F7"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+
+        <svg
+          class="svg-dark"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10 1V3.25M16.364 3.636L14.773 5.227M19 10H16.75M16.364 16.364L14.773 14.773M10 16.75V19M5.227 14.773L3.636 16.364M3.25 10H1M5.227 5.227L3.636 3.636M13.75 10C13.75 10.9946 13.3549 11.9484 12.6517 12.6517C11.9484 13.3549 10.9946 13.75 10 13.75C9.00544 13.75 8.05161 13.3549 7.34835 12.6517C6.64509 11.9484 6.25 10.9946 6.25 10C6.25 9.00544 6.64509 8.05161 7.34835 7.34835C8.05161 6.64509 9.00544 6.25 10 6.25C10.9946 6.25 11.9484 6.64509 12.6517 7.34835C13.3549 8.05161 13.75 9.00544 13.75 10Z"
+            stroke="#161616"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+    </header>
+    <main class="technical-detail">
+      <small>September 30th, 2023</small>
+      <h1>The Cascade Theory.</h1>
+      <p class="intro">
+        An unveiling of the mechanics behind the CSS Cascade. I'll break down
+        the intricacies that guide the combination of styles on a webpage, and
+        how we can use that to create more consistent and appealing designs.
+      </p>
+
+      <hr class="header-segmenter" />
+    </main>
+    <footer>
+      <p class="locationTime">LAGOS, NG — 02:49</p>
+      <p><a href="https://twitter.com/etadn">@etadn</a></p>
+    </footer>
+  </body>
+</html>

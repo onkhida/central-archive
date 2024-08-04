@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <meta name="author" content="onkhida" />
+    <meta name="title" content="<%= htmlWebpackPlugin.options.postTitle %>" />
+    <meta name="description" content="<%= htmlWebpackPlugin.options.desc %>" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://danieleta.com/" />
+    <meta
+      property="og:title"
+      content="<%= htmlWebpackPlugin.options.postTitle %>"
+    />
+    <meta
+      property="og:description"
+      content="<%= htmlWebpackPlugin.options.desc %>"
+    />
+    <meta
+      property="og:image"
+      content="https://i.ibb.co/mH7mJJZ/base-image.png"
+    />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@onkhida" />
+    <meta name="twitter:creator" content="@onkhida" />
+    <meta
+      name="twitter:title"
+      content="<%= htmlWebpackPlugin.options.postTitle %>"
+    />
+    <meta
+      name="twitter:description"
+      content="<%= htmlWebpackPlugin.options.desc %>"
+    />
+    <meta
+      name="twitter:image:src"
+      content="https://i.ibb.co/mH7mJJZ/base-image.png"
+    />
+
+    <title><%= htmlWebpackPlugin.options.postTitle %></title>
+    <!-- <link rel="icon" type="image/x-icon" href="../src/assets/favicon.ico" /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html {
+        visibility: hidden;
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="/commentary.html" class="back-btn">
+        <svg
+          width="15"
+          height="10"
+          viewBox="0 0 15 10"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M6.61848 0.162725C6.88476 0.37968 6.88476 0.731436 6.61848 0.948391L2.32788 4.44445H14.3182C14.6947 4.44445 15 4.69318 15 5C15 5.30682 14.6947 5.55556 14.3182 5.55556H2.32788L6.61848 9.05156C6.88476 9.26856 6.88476 9.62033 6.61848 9.83733C6.35222 10.0542 5.92052 10.0542 5.65425 9.83733L0.199708 5.39283C-0.0665693 5.17588 -0.0665693 4.82412 0.199708 4.60717L5.65425 0.162725C5.92052 -0.0542416 6.35222 -0.0542416 6.61848 0.162725Z"
+            fill="currentColor"
+          />
+        </svg>
+      </a>
+      <div class="theme-toggler">
+        <svg
+          width="17"
+          height="17"
+          viewBox="0 0 17 17"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M8.5 0C8.81296 0 9.06667 0.253706 9.06667 0.566667V2.83333C9.06667 3.14629 8.81296 3.4 8.5 3.4C8.18704 3.4 7.93333 3.14629 7.93333 2.83333V0.566667C7.93333 0.253706 8.18704 0 8.5 0ZM2.48959 2.48959C2.71089 2.2683 3.06968 2.2683 3.29098 2.48959L4.89376 4.09236C5.11505 4.31366 5.11505 4.67246 4.89376 4.89376C4.67246 5.11505 4.31366 5.11505 4.09236 4.89376L2.48959 3.29098C2.2683 3.06968 2.2683 2.71089 2.48959 2.48959ZM0.566667 7.93333C0.253706 7.93333 0 8.18704 0 8.5C0 8.81296 0.253706 9.06667 0.566667 9.06667H2.83333C3.14629 9.06667 3.4 8.81296 3.4 8.5C3.4 8.18704 3.14629 7.93333 2.83333 7.93333H0.566667ZM2.48959 14.5104C2.2683 14.2891 2.2683 13.9304 2.48959 13.709L4.09236 12.1063C4.31366 11.8849 4.67246 11.8849 4.89376 12.1063C5.11505 12.3275 5.11505 12.6863 4.89376 12.9076L3.29098 14.5104C3.06968 14.7317 2.71089 14.7317 2.48959 14.5104ZM14.1667 7.93333C13.8538 7.93333 13.6 8.18704 13.6 8.5C13.6 8.81296 13.8538 9.06667 14.1667 9.06667H16.4333C16.7462 9.06667 17 8.81296 17 8.5C17 8.18704 16.7462 7.93333 16.4333 7.93333H14.1667ZM12.1063 4.89376C11.8849 4.67246 11.8849 4.31366 12.1063 4.09236L13.709 2.48959C13.9304 2.2683 14.2891 2.2683 14.5104 2.48959C14.7317 2.71089 14.7317 3.06968 14.5104 3.29098L12.9076 4.89376C12.6863 5.11505 12.3275 5.11505 12.1063 4.89376ZM9.06667 14.1667C9.06667 13.8538 8.81296 13.6 8.5 13.6C8.18704 13.6 7.93333 13.8538 7.93333 14.1667V16.4333C7.93333 16.7462 8.18704 17 8.5 17C8.81296 17 9.06667 16.7462 9.06667 16.4333V14.1667ZM12.1063 12.1063C12.3275 11.8849 12.6863 11.8849 12.9076 12.1063L14.5104 13.709C14.7317 13.9304 14.7317 14.2891 14.5104 14.5104C14.2891 14.7317 13.9304 14.7317 13.709 14.5104L12.1063 12.9076C11.8849 12.6863 11.8849 12.3275 12.1063 12.1063ZM6.23333 8.5C6.23333 7.24815 7.24815 6.23333 8.5 6.23333C9.75185 6.23333 10.7667 7.24815 10.7667 8.5C10.7667 9.75185 9.75185 10.7667 8.5 10.7667C7.24815 10.7667 6.23333 9.75185 6.23333 8.5ZM8.5 5.1C6.62224 5.1 5.1 6.62224 5.1 8.5C5.1 10.3778 6.62224 11.9 8.5 11.9C10.3778 11.9 11.9 10.3778 11.9 8.5C11.9 6.62224 10.3778 5.1 8.5 5.1Z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+    </header>
+    <main>
+      <div class="top">
+        <h1><%= htmlWebpackPlugin.options.postTitle %></h1>
+        <small><%= htmlWebpackPlugin.options.postDate %></small>
+      </div>
+      <section class="commentary-content">
+        <%= htmlWebpackPlugin.options.content %>
+      </section>
+    </main>
+    <footer>
+      <p class="locationTime">LAGOS, NG — 02:49</p>
+      <p><a href="https://twitter.com/onkhida">@onkhida</a></p>
+    </footer>
+  </body>
+</html>
