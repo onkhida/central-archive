@@ -2,3 +2,4 @@ node_modules/
 dist/
 technical/
 drafts/
+month-based-cmtary.ejs

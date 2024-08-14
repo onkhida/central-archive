@@ -53,7 +53,9 @@ const postObjects = outputPaths.map((filepath) => {
 
   const { data: frontmatter } = matter(postMarkdown);
   let postDate = new Date(frontmatter.date);
-  postDate = `${monthNames[postDate.getMonth()]} ${postDate.getDate()}`;
+  postDate = `${
+    monthNames[postDate.getMonth()]
+  } ${postDate.getDate()}, ${postDate.getFullYear()}`;
   const postTitle = frontmatter.title;
 
   dates.push(frontmatter.date.substring(0, 7));
