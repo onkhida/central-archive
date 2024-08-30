@@ -1,6 +1,7 @@
 // imports
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const fs = require("fs");
 const matter = require("gray-matter");
 const { marked } = require("marked");
@@ -146,6 +147,11 @@ module.exports = {
     index: "./src/ts/core.ts",
   },
   plugins: [
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: "./src/assets", to: "assets" }, // Copies the 'assets' folder to 'dist/assets'
+      ],
+    }),
     new HtmlWebpackPlugin({
       template: "./templates/index.html",
       favicon: "./src/assets/favicon.ico",

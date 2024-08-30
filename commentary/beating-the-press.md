@@ -6,8 +6,8 @@ desc: "Making sense of pain"
 
 The Arsenal’s [game](https://youtu.be/2jQTitvTeVw?si=6KkeYIRPsulAbBzJ) against Newcastle yesterday had some of the prettiest buildup sequences I've seen in a while. There is something incredibly satisfying about evading the initial opposition press and using the space left behind to create chances. There's probably been prettier though (even in this match week), but yesterday's victory gave me an unbelievable amount of dopamine so I will stick with that as the top spot.
 
-![Martin Ødegaard celebrating after emphatically scoring Arsenal's first goal](https://i.ibb.co/sFTmXfs/capitan.webp)
-_Martin Ødegaard celebrating after emphatically scoring Arsenal's first goal_
+![Gabriel Martinelli celebrating after setting up Arsenal's second goal](../assets/commentary/gabi-martinelli-may23.jpg)
+_Gabriel Martinelli celebrating after setting up Arsenal's second goal_
 
 [Joel](https://twitter.com/joeladejola) and I have been talking a lot about discomfort. In many ways, it seems to be the theme of the past year, and despite the growth I've experienced, I would be lying if I said that it was all smooth sailing. Though it's not even this past year that has been a task to navigate. Across my life in general, there have been a lot of experiences. I am very lucky that there's been a lot of good in it. But, much like most people, there is still a fair share of my experiences that felt initially uncomfortable.
 
