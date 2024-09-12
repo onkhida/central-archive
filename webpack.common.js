@@ -11,7 +11,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const monthNames = [
   "Jan.",
   "Feb.",
-  "Mar.",
+  "March",
   "April",
   "May",
   "June",
