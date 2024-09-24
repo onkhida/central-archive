@@ -99,11 +99,8 @@
       </p>
 
       <hr />
-      <% htmlWebpackPlugin.options.monthObjects.forEach(function(monthObj){ %>
       <div class="month">
-        <!-- <h5><%= monthObj.month %></h5> -->
-
-        <% monthObj.posts.forEach(function(post){ %>
+        <% htmlWebpackPlugin.options.postObjects.forEach(function(post){ %>
         <a href="<%= post.detailURI %>">
           <span>
             <svg
@@ -127,7 +124,6 @@
         </a>
         <% }); %>
       </div>
-      <% }); %>
     </main>
     <footer>
       <p class="locationTime">LAGOS, NG — 02:49</p>

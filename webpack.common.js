@@ -38,17 +38,13 @@ const fullMonthNames = [
   "December",
 ];
 
+// the files from the commentary archive
 const files = fs.readdirSync(path.resolve(__dirname, "commentary"));
-const outputPaths = files.map((filename) => {
-  return filename.replace(".md", "");
-});
 
-let dates = [];
-
-// the objects of posts
-const postObjects = outputPaths.map((filepath) => {
+// the objects for the posts › this helps me develop a list of available posts on `commentary.html`
+const postObjects = files.map((filepath) => {
   const postMarkdown = fs.readFileSync(
-    path.resolve(__dirname, "commentary", `${filepath}.md`),
+    path.resolve(__dirname, "commentary", filepath),
     "utf-8"
   );
 
@@ -59,47 +55,21 @@ const postObjects = outputPaths.map((filepath) => {
   } ${postDate.getDate()}, ${postDate.getFullYear()}`;
   const postTitle = frontmatter.title;
 
-  dates.push(frontmatter.date.substring(0, 7));
+  const fileName = filepath.replace(".md", "");
+  const postSlug = fileName.split(" ")[1];
 
   return {
-    detailURI: `c/${filepath}.html`,
+    detailURI: `c/${postSlug}.html`,
     dateID: frontmatter.date,
     postDate,
     postTitle,
   };
 });
 
-const uniqueDates = [...new Set(dates)];
-uniqueDates
-  .sort(function (a, b) {
-    // Turn your strings into dates, and then subtract them
-    // to get a value that is either negative, positive, or zero.
-    return new Date(a) - new Date(b);
-  })
-  .reverse();
-
-postObjects.sort(function (a, b) {
-  // Turn your strings into dates, and then subtract them
-  // to get a value that is either negative, positive, or zero.
-  return new Date(a.dateID) - new Date(b.dateID);
-});
-
-const monthObjects = uniqueDates.map((date) => {
-  const posts = postObjects.filter(
-    (post) => post.dateID.substring(0, 7) === date
-  );
-  let month = new Date(date);
-  month = `${fullMonthNames[month.getMonth()]} ${month.getFullYear()}`;
-
-  return {
-    month,
-    posts,
-  };
-});
-
-let multipleHtmlPlugins = outputPaths.map((name) => {
+// now I'm using this to generate the HTML for each specific commentary post
+let multipleHtmlPlugins = files.map((file) => {
   const markdownWithMeta = fs.readFileSync(
-    path.resolve(__dirname, "commentary", `${name}.md`),
+    path.resolve(__dirname, "commentary", file),
     "utf-8"
   );
 
@@ -112,8 +82,11 @@ let multipleHtmlPlugins = outputPaths.map((name) => {
     fullMonthNames[articleDate.getMonth()]
   } ${articleDate.getDate()}, ${articleDate.getFullYear()}`;
 
+  const fileName = file.replace(".md", "");
+  const postSlug = fileName.split(" ")[1];
+
   return new HtmlWebpackPlugin({
-    filename: `c/${name}.html`,
+    filename: `c/${postSlug}.html`,
     template: "./templates/commentary-detail.ejs",
     favicon: "./src/assets/favicon.ico",
     postTitle: frontmatter.title,
@@ -123,24 +96,6 @@ let multipleHtmlPlugins = outputPaths.map((name) => {
     chunks: ["index"],
   });
 });
-
-// let technicalPosts = // this should be an array of the technical posts returned
-// const technicalTemplates = fs.readdirSync(
-//   path.resolve(__dirname, "templates", "technical")
-// );
-// let technicalWebpackPlugins = technicalTemplates.map((t) => {
-//   return new HtmlWebpackPlugin({
-//     filename: `t/${t}`,
-//     template: `./templates/technical/${t}`,
-//     favicon: "./src/assets/favicon.ico",
-//     chunks: ["index"],
-//   });
-// });
-
-// console.log(technicalWebpackPlugins);
-// const outputPaths = files.map((filename) => {
-//   return filename.replace(".md", "");
-// });
 
 module.exports = {
   entry: {
@@ -155,19 +110,24 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./templates/index.html",
       favicon: "./src/assets/favicon.ico",
-      outputPathsObj: outputPaths,
       chunks: ["index"],
     }),
     new HtmlWebpackPlugin({
       filename: "commentary.html",
       template: "./templates/commentary.ejs",
       favicon: "./src/assets/favicon.ico",
-      monthObjects: monthObjects,
+      postObjects: postObjects,
       chunks: ["index"],
     }),
     // new HtmlWebpackPlugin({
     //   filename: "technical.html",
     //   template: "./templates/technical.html",
+    //   favicon: "./src/assets/favicon.ico",
+    //   chunks: ["index"],
+    // }),
+    // new HtmlWebpackPlugin({
+    //   filename: "readings.html",
+    //   template: "./templates/readings.html",
     //   favicon: "./src/assets/favicon.ico",
     //   chunks: ["index"],
     // }),
@@ -177,15 +137,8 @@ module.exports = {
       favicon: "./src/assets/favicon.ico",
       chunks: ["index"],
     }),
-    // new HtmlWebpackPlugin({
-    //   filename: "readings.html",
-    //   template: "./templates/readings.html",
-    //   favicon: "./src/assets/favicon.ico",
-    //   chunks: ["index"],
-    // }),
     new MiniCssExtractPlugin(),
   ].concat(multipleHtmlPlugins),
-  // .concat(technicalWebpackPlugins),
   output: {
     filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "dist"),

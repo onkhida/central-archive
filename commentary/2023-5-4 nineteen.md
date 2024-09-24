@@ -1,7 +1,7 @@
 ---
-title: "19 / Holocene"
-date: "2023-5-4"
-desc: "My emotions from the past year, life's transience, and birthday thoughts on Holocene."
+title: 19 / Holocene
+date: 2023-5-4
+desc: My emotions from the past year, life's transience, and birthday thoughts on Holocene.
 ---
 
 ![The cover art for Bon Iver’s self-titled LP, released 2011](../assets/c/boniver-lp-2.png)
