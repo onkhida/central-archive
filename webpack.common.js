@@ -41,6 +41,8 @@ const fullMonthNames = [
 // the files from the commentary archive
 const files = fs.readdirSync(path.resolve(__dirname, "commentary"));
 
+console.log(files);
+
 // the objects for the posts › this helps me develop a list of available posts on `commentary.html`
 const postObjects = files.map((filepath) => {
   const postMarkdown = fs.readFileSync(
