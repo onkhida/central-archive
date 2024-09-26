@@ -4,8 +4,9 @@
   "description": "Personal archive for onkhida.",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config webpack.prod.js",
-    "dev": "webpack serve --open --config webpack.dev.js"
+    "build": "webpack --config webpack.prod.ts",
+    "alt": "ts-node --transpile-only webpack.dev.ts",
+    "dev": "webpack serve --config webpack.dev.ts"
   },
   "author": "onkhida",
   "license": "ISC",
@@ -20,6 +21,7 @@
     "mini-css-extract-plugin": "^2.7.6",
     "style-loader": "^3.3.3",
     "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
     "typescript": "^5.3.3",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",

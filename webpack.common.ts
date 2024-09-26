@@ -1,14 +1,15 @@
 // imports
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
-const fs = require("fs");
-const matter = require("gray-matter");
-const { marked } = require("marked");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+import path from "path";
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import CopyWebpackPlugin from "copy-webpack-plugin";
+import fs from "fs";
+import matter from "gray-matter";
+import { marked } from "marked";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import { Configuration } from "webpack";
 
 // defined the month names here to get them via indexing later in the function
-const monthNames = [
+const monthNames: string[] = [
   "Jan.",
   "Feb.",
   "March",
@@ -23,7 +24,7 @@ const monthNames = [
   "Dec.",
 ];
 
-const fullMonthNames = [
+const fullMonthNames: string[] = [
   "January",
   "February",
   "March",
@@ -39,26 +40,27 @@ const fullMonthNames = [
 ];
 
 // the files from the commentary archive
-const files = fs.readdirSync(path.resolve(__dirname, "commentary"));
-
-flippedFiles = files.reverse();
+const files: string[] = fs
+  .readdirSync(path.resolve(__dirname, "commentary"))
+  .reverse();
 
 // the objects for the posts › this helps me develop a list of available posts on `commentary.html`
-const postObjects = files.map((filepath) => {
-  const postMarkdown = fs.readFileSync(
+const postObjects = files.map((filepath: string) => {
+  const postMarkdown: string = fs.readFileSync(
     path.resolve(__dirname, "commentary", filepath),
     "utf-8"
   );
 
   const { data: frontmatter } = matter(postMarkdown);
-  let postDate = new Date(frontmatter.date);
+  let postDate: string;
+  const date = new Date(frontmatter.date);
   postDate = `${
-    monthNames[postDate.getMonth()]
-  } ${postDate.getDate()}, ${postDate.getFullYear()}`;
-  const postTitle = frontmatter.title;
+    monthNames[date.getMonth()]
+  } ${date.getDate()}, ${date.getFullYear()}`;
+  const postTitle: string = frontmatter.title;
 
-  const fileName = filepath.replace(".md", "");
-  const postSlug = fileName.split(" ")[1];
+  const fileName: string = filepath.replace(".md", "");
+  const postSlug: string = fileName.split(" ")[1];
 
   return {
     detailURI: `c/${postSlug}.html`,
@@ -69,23 +71,25 @@ const postObjects = files.map((filepath) => {
 });
 
 // now I'm using this to generate the HTML for each specific commentary post
-let multipleHtmlPlugins = files.map((file) => {
-  const markdownWithMeta = fs.readFileSync(
+const multipleHtmlPlugins = files.map((file: string) => {
+  const markdownWithMeta: string = fs.readFileSync(
     path.resolve(__dirname, "commentary", file),
     "utf-8"
   );
 
-  const { data: frontmatter, content } = matter(markdownWithMeta);
-  const parsedContent = marked(content);
-  const metaDesc = frontmatter.desc;
+  const { data: frontmatter, content }: { data: any; content: string } =
+    matter(markdownWithMeta);
+  const parsedContent: string = marked(content);
+  const metaDesc: string = frontmatter.desc;
 
-  let articleDate = new Date(frontmatter.date);
+  let articleDate: string;
+  const date = new Date(frontmatter.date);
   articleDate = `${
-    fullMonthNames[articleDate.getMonth()]
-  } ${articleDate.getDate()}, ${articleDate.getFullYear()}`;
+    fullMonthNames[date.getMonth()]
+  } ${date.getDate()}, ${date.getFullYear()}`;
 
-  const fileName = file.replace(".md", "");
-  const postSlug = fileName.split(" ")[1];
+  const fileName: string = file.replace(".md", "");
+  const postSlug: string = fileName.split(" ")[1];
 
   return new HtmlWebpackPlugin({
     filename: `c/${postSlug}.html`,
@@ -99,15 +103,14 @@ let multipleHtmlPlugins = files.map((file) => {
   });
 });
 
-module.exports = {
+// Webpack configuration
+const config: Configuration = {
   entry: {
     index: "./src/ts/core.ts",
   },
   plugins: [
     new CopyWebpackPlugin({
-      patterns: [
-        { from: "./src/assets", to: "assets" }, // Copies the 'assets' folder to 'dist/assets'
-      ],
+      patterns: [{ from: "./src/assets", to: "assets" }],
     }),
     new HtmlWebpackPlugin({
       template: "./templates/index.html",
@@ -121,18 +124,6 @@ module.exports = {
       postObjects: postObjects,
       chunks: ["index"],
     }),
-    // new HtmlWebpackPlugin({
-    //   filename: "technical.html",
-    //   template: "./templates/technical.html",
-    //   favicon: "./src/assets/favicon.ico",
-    //   chunks: ["index"],
-    // }),
-    // new HtmlWebpackPlugin({
-    //   filename: "readings.html",
-    //   template: "./templates/readings.html",
-    //   favicon: "./src/assets/favicon.ico",
-    //   chunks: ["index"],
-    // }),
     new HtmlWebpackPlugin({
       filename: "404.html",
       template: "./templates/404.html",
@@ -175,7 +166,7 @@ module.exports = {
             loader: "file-loader",
             options: {
               name: "[name].[hash].[ext]",
-              outputPath: "images", // Output directory for images
+              outputPath: "images",
             },
           },
         ],
@@ -189,3 +180,5 @@ module.exports = {
     runtimeChunk: "single",
   },
 };
+
+export default config;
