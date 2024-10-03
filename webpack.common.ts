@@ -62,9 +62,12 @@ const postObjects = files.map((filepath: string) => {
   const fileName: string = filepath.replace(".md", "");
   const postSlug: string = fileName.split(" ")[1];
 
+  const birthday: boolean =
+    `${monthNames[date.getMonth()]} ${date.getDate()}` === "May 4";
+
   return {
     detailURI: `c/${postSlug}.html`,
-    dateID: frontmatter.date,
+    birthday,
     postDate,
     postTitle,
   };
