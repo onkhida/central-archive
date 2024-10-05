@@ -1,6 +1,6 @@
 ---
-title: Mahogany Pieces
-date: 2022-5-7
+title: 18 / Mahogany Pieces
+date: 2022-5-4
 desc: A brief memoir about chess, my personal attachment to the game, the lessons that I have garnered from this sport, and the therapeutic energy that this game has pumped into my veins.
 ---
 
