@@ -452,53 +452,6 @@ main.technical article a {
   font-weight: bold;
 }
 
-section.projects {
-  margin-bottom: 50px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-section.projects .container {
-  width: 100%;
-  min-width: 331px;
-  background-color: var(--project-background-color);
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  padding: 14px 20px 14px 20px;
-  justify-content: space-between;
-  margin-bottom: 15px;
-}
-
-section.projects .container img {
-  width: 35px;
-  height: 35px;
-}
-
-section.projects .container .left {
-  display: flex;
-  align-items: center;
-}
-
-section.projects .container .left .txt {
-  margin-left: 14px;
-}
-
-section.projects .container p,
-section.projects .container small {
-  padding: 0;
-  margin: 0;
-}
-
-section.projects .container p {
-  font-size: 14px;
-}
-
-section.projects .container small {
-  font-size: 11px;
-}
-
 .top {
   border-bottom: 1px solid var(--default-text-color);
   margin: 0 0 20px 0;
@@ -567,10 +520,6 @@ main.not-found p {
 }
 
 @media screen and (min-width: 550px) {
-  section.projects .container {
-    width: 90%;
-  }
-
   .month .commentary-text {
     width: fit-content;
   }
@@ -638,17 +587,6 @@ main.not-found p {
 
   .month a svg {
     margin-right: 20px;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  section.projects .container {
-    width: 330px;
-    margin-bottom: 20px;
-  }
-
-  section.projects {
-    justify-content: space-around;
   }
 }
 
